@@ -1,0 +1,89 @@
+/* ==========================================================================
+   Sign-up page — additive styles on top of styles.css
+   ========================================================================== */
+
+/* Sign-up card is naturally a touch taller (more fields) */
+.auth-card-signup{
+  min-height:auto;
+}
+
+/* ---------- left panel checklist ---------- */
+.checklist{
+  list-style:none;
+  margin:24px 0 0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.checklist li{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-size:13.5px;
+  color:var(--navy-700);
+  font-weight:500;
+}
+.checklist li svg{
+  color:var(--green-500);
+  flex-shrink:0;
+}
+
+/* ---------- name row (two fields side by side) ---------- */
+.name-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+@media (max-width:480px){
+  .name-row{ grid-template-columns:1fr; }
+}
+
+/* ---------- password strength meter ---------- */
+.strength-meter{
+  display:flex;
+  gap:5px;
+  margin-top:2px;
+}
+.strength-bar{
+  flex:1;
+  height:4px;
+  border-radius:3px;
+  background:var(--line);
+  transition:background .2s ease;
+}
+
+.strength-meter[data-level="1"] .strength-bar:nth-child(1){ background:var(--danger); }
+
+.strength-meter[data-level="2"] .strength-bar:nth-child(1),
+.strength-meter[data-level="2"] .strength-bar:nth-child(2){ background:#E8A93C; }
+
+.strength-meter[data-level="3"] .strength-bar:nth-child(1),
+.strength-meter[data-level="3"] .strength-bar:nth-child(2),
+.strength-meter[data-level="3"] .strength-bar:nth-child(3){ background:#3DBE7A; }
+
+.strength-meter[data-level="4"] .strength-bar{ background:var(--blue-600); }
+
+.strength-label{
+  font-size:11.5px;
+  font-weight:600;
+  color:var(--ink-mute);
+  min-height:14px;
+  display:block;
+}
+.strength-label[data-level="1"]{ color:var(--danger); }
+.strength-label[data-level="2"]{ color:#B8791F; }
+.strength-label[data-level="3"]{ color:#2E9860; }
+.strength-label[data-level="4"]{ color:var(--blue-600); }
+
+/* checkbox label needs to wrap links without breaking layout */
+.checkbox-label a{
+  color:var(--blue-600);
+  font-weight:600;
+}
+
+/* terms error sits right under the checkbox row, matching field-error style */
+#termsError{
+  margin-top:-10px;
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ModernTech Solutions | HR Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<div class="dash-shell">
+
+  <header class="dash-header">
+    <div class="dash-header-left">
+      <div class="logo-mark-small" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 32 L14 14 L22 32 L26 22 L30 32 L38 14 L48 32" stroke="url(#logoGradientDash)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <defs>
+            <linearGradient id="logoGradientDash" x1="4" y1="14" x2="48" y2="32" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#22C1DC"/>
+              <stop offset="45%" stop-color="#3DBE7A"/>
+              <stop offset="100%" stop-color="#2E6FF2"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <span class="dash-brand">ModernTech <strong>HR</strong></span>
+    </div>
+
+    <div class="dash-header-right">
+      <div class="dash-user" id="dashUser">
+        <span class="dash-user-avatar" id="dashUserAvatar">--</span>
+        <div class="dash-user-info">
+          <strong id="dashUserName">Loading…</strong>
+          <span id="dashUserRole">—</span>
+        </div>
+      </div>
+      <button class="btn-logout" id="logoutBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>
+        Log out
+      </button>
+    </div>
+  </header>
+
+  <main class="dash-main">
+    <section class="dash-welcome">
+      <h1 id="welcomeHeading">Welcome back</h1>
+      <p>Here's the current employee directory for ModernTech Solutions.</p>
+    </section>
+
+    <section class="stat-row" id="statRow">
+      <div class="stat-card">
+        <span class="stat-value" id="statTotal">—</span>
+        <span class="stat-label">Total Employees</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value" id="statDepartments">—</span>
+        <span class="stat-label">Departments</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value" id="statAvgSalary">—</span>
+        <span class="stat-label">Average Salary</span>
+      </div>
+    </section>
+
+    <section class="dash-table-card">
+      <div class="table-toolbar">
+        <h2>Employee Directory</h2>
+        <div class="table-controls">
+          <div class="search-wrap">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <input type="text" id="searchInput" placeholder="Search by name or position…">
+          </div>
+          <select id="departmentFilter">
+            <option value="">All Departments</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="table-scroll">
+        <table class="employee-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Department</th>
+              <th>Salary</th>
+              <th>Employment History</th>
+              <th>Contact</th>
+            </tr>
+          </thead>
+          <tbody id="employeeTableBody">
+            <!-- populated by dashboard.js -->
+          </tbody>
+        </table>
+      </div>
+
+      <p class="table-empty" id="tableEmpty" style="display:none;">No employees match your search.</p>
+    </section>
+  </main>
+</div>
+
+<script src="employees-data.js"></script>
+<script src="auth.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>
